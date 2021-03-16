@@ -13,7 +13,6 @@ import javax.annotation.PreDestroy;
 public class LifeCycleDemoBean implements InitializingBean, DisposableBean, BeanNameAware,
         BeanFactoryAware, ApplicationContextAware {
 
-
     public LifeCycleDemoBean() {
         System.out.println("## I'm in the LifeCycleBean Constructor");
     }
@@ -32,7 +31,7 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        System.out.println("## Bean Factory has been set");
+        System.out.println("## Bean Factory has been set to LifeCycleBean");
     }
 
     @Override
@@ -43,24 +42,24 @@ public class LifeCycleDemoBean implements InitializingBean, DisposableBean, Bean
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("## Application context has been set");
+        System.out.println("## Application context has been set to LifeCycleBean");
     }
 
     @PostConstruct
     public void postConstruct(){
-        System.out.println("## The Post Construct annotated method has been called");
+        System.out.println("## The Post Construct annotated method has been called for LifeCycleBean");
     }
 
     @PreDestroy
     public void preDestroy() {
-        System.out.println("## The Predestroy annotated method has been called");
+        System.out.println("## The Predestroy annotated method has been called for LifeCycleBean");
     }
 
     public void beforeInit(){
-        System.out.println("## - Before Init - Called by Bean Post Processor");
+        System.out.println("## - Before Init LifeCycleBean - Called by Bean Post Processor");
     }
 
     public void afterInit(){
-        System.out.println("## - After init called by Bean Post Processor");
+        System.out.println("## - After Init LifeCycleBean - Called by Bean Post Processor");
     }
 }
